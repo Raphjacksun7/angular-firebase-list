@@ -1,6 +1,6 @@
 # STUDMIA
 
-Front-end: Angular
+Front-end: Angular |
 Back-end: Firebase
 
 ## dependencies
