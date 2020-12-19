@@ -3,7 +3,12 @@
 Front-end: Angular |
 Back-end: Firebase
 
-## dependencies
+## Login Credentials
+
+  email: hello@example.com
+  passord: 12356
+
+## Dependencies
 
 Ensure these are installed before going further:
 
