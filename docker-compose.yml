@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  example:
+    container_name: app_studmia
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "4201:4200"

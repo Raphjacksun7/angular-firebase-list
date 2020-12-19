@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { StudentService, Student } from "../../services";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import * as faker from "faker";
@@ -25,6 +25,7 @@ export class StudentComponent implements OnInit {
     this.getStudents();
   }
 
+  // Get list of students by using Student Service method
   getStudents() {
     this.studentService.getStudents().subscribe((data) => {
       this.students = [];
@@ -33,6 +34,9 @@ export class StudentComponent implements OnInit {
           id: e.payload.doc.id,
           ...e.payload.doc.data(),
         });
+
+        // Verify if the loop of the array (data) is at teh end, if so then turn the loader to false
+
         if (data.length == index + 1) {
           this.isLoading = false;
           console.log(this.students);
@@ -41,6 +45,7 @@ export class StudentComponent implements OnInit {
     });
   }
 
+  // This method permits to create random data of students
   dataGenerator() {
     for (let index = 1; index < 200; index++) {
       this.createRecord({
@@ -51,6 +56,7 @@ export class StudentComponent implements OnInit {
     }
   }
 
+  // This method permits to save the random data to the server
   createRecord(record: Student) {
     this.studentService
       .newStudent(record)
@@ -60,6 +66,7 @@ export class StudentComponent implements OnInit {
       });
   }
 
+  // Launch a modal component then pass data through it
   studentCourses(student: Student) {
     const initialState = {
       student: student,

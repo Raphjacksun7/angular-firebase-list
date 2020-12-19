@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-auth",
@@ -10,7 +9,7 @@ import { Router } from "@angular/router";
 export class AuthComponent implements OnInit {
   loginBtn = "Login";
   message: any;
-  constructor(private readonly auth: AuthService, private router: Router) {}
+  constructor(private readonly auth: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -20,7 +19,6 @@ export class AuthComponent implements OnInit {
     this.auth
       .signIn(email, password)
       .then((res) => {
-        this.router.navigate([""]);
         this.loginBtn = "Login";
       })
       .catch((e) => {

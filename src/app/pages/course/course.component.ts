@@ -26,6 +26,7 @@ export class CourseComponent implements OnInit {
     this.getCourses();
   }
 
+  // Get list of courses by using course Service method
   getCourses() {
     this.courseService.getCourses().subscribe((data) => {
       data.forEach((e: any, index) => {
@@ -38,6 +39,7 @@ export class CourseComponent implements OnInit {
     });
   }
 
+  // Get the previously selected courses of a specific student
   getStudentCourses(e) {
     if (this.student.courses.length == 0) {
       this.isLoading = false;
@@ -55,6 +57,7 @@ export class CourseComponent implements OnInit {
     });
   }
 
+  // Update the selected courses of a specific student
   update() {
     this.updateBtn = "Updating...";
     this.student.courses = this.selected;

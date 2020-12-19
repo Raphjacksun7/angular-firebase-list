@@ -36,7 +36,7 @@ export class AuthService {
     return this.firestore
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
+        this.router.navigate(["/"]);
       })
       .catch((error) => {
         window.alert(error.message);

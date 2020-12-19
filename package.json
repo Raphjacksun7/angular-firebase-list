@@ -1,6 +1,7 @@
 {
-  "name": "students-courses",
-  "version": "0.0.1",
+  "name": "studmia",
+  "version": "0.1.2",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
