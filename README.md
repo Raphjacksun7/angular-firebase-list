@@ -1,6 +1,7 @@
 # STUDMIA
 
-A docker stack for this project.
+Front-end: Angular
+Back-end: Firebase
 
 ## dependencies
 
