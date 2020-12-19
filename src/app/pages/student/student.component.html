@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-plain">
+      <div class="card-header">
+        <h4 class="card-title">List of students</h4>
+        <p class="card-category">
+          Click on the list item to display the selected courses for a specific
+          student
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <div *ngIf="!isLoading">
+            <table class="table table-hover">
+              <thead class="text-primary">
+                <th>#</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th class="text-right">Courses</th>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="
+                    let student of students
+                      | paginate: { itemsPerPage: 10, currentPage: page };
+                    let i = index
+                  "
+                  (click)="studentCourses(student)"
+                >
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ student.firstName }}</td>
+                  <td>{{ student.lastName }}</td>
+                  <td class="text-right">{{ student.courses.length }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls
+              (pageChange)="page = $event"
+              (pageBoundsCorrection)="page = $event"
+              maxSize="6"
+              autoHide="true"
+              responsive="true"
+            >
+            </pagination-controls>
+          </div>
+          <div *ngIf="isLoading">
+            <table class="table">
+              <thead class="text-primary">
+                <th>#</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th class="text-right">Courses</th>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <p class="loading">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

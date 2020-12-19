@@ -1,0 +1,30 @@
+.modal-header {
+  border-bottom: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.modal-close {
+  color: #272727;
+  line-height: 40px;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 80px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
+
+.modal-body {
+  h1 {
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #a1a1a1;
+  }
+}

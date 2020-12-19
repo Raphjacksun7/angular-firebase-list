@@ -1,0 +1,28 @@
+<div id="open-modal" class="modal-header">
+  <span href="#" title="Close" class="modal-close" (click)="bsModalRef.hide()"
+    >Close</span
+  >
+</div>
+<div class="modal-body">
+  <h1>{{ student.firstName + " " + student.lastName }}</h1>
+  <div>The student selected courses</div>
+
+  <button type="button" class="btn btn-primary btn-sm" (click)="update()">
+    {{ updateBtn }}
+  </button>
+
+  <br />
+
+  <ng-select
+    *ngIf="!isLoading"
+    placeholder="Select courses"
+    [multiple]="true"
+    [(ngModel)]="selected"
+  >
+    <ng-option *ngFor="let course of courses" [value]="course.id">{{
+      course.name
+    }}</ng-option>
+  </ng-select>
+
+  <span *ngIf="isLoading"> Please wait... </span>
+</div>
